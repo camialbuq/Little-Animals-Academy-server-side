@@ -72,6 +72,11 @@ authRouter.post("/auth/login", (req, res) => {
     });
 });
 
+authRouter.post("/auth/logout", (req, res) => {
+  // On the client side, remove the token to log the user out.
+  res.status(200).json({ message: "Logout successful" });
+});
+
 authRouter.get("/auth/verify", isAuthenticated, (req, res, next) => {
   res.status(200).json(req.user);
 });
