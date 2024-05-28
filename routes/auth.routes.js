@@ -7,8 +7,8 @@ const authRouter = express.Router();
 const saltRounds = 10;
 
 authRouter.post("/auth/signup", (req, res) => {
-  const { email, password, name } = req.body;
-  if (!email || !password || !name) {
+  const { email, password, name, playerName } = req.body;
+  if (!email || !password || !name || !playerName) {
     res.status(400).json({ message: "Please fill all the fields" });
     return;
   }
@@ -21,6 +21,7 @@ authRouter.post("/auth/signup", (req, res) => {
         email,
         password: hashedPassword,
         name,
+        playerName,
       })
         .then((response) => {
           res

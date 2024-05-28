@@ -18,6 +18,10 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
+    playerName: {
+      type: String,
+      required: true,
+    },
     image: {
       type: String,
       default:
