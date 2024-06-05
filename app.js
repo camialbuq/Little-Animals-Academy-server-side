@@ -19,7 +19,7 @@ const app = express();
 
 //connects to DB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/littleacademy-api")
+  .connect(process.env.MONGODB_URI)
   .then((x) => console.log(`Connected to Database: "${x.connections[0].name}"`))
   .catch((err) => console.error("Error connecting to MongoDB", err));
 
